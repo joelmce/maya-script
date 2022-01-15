@@ -1,6 +1,8 @@
 import maya.cmds as cmds
 import math as math
 import random as random
+import json
+import numpy.random import choice
 
 filePath = "/assets" # TODO: Filing heirarchy
 fileType = "obj"
@@ -46,6 +48,17 @@ class FileManager:
         else:
             for i in files:
                 cmds.file(filePath + i, i = True)
+
+class Rarity:
+    def __init(self, path, json):
+        with open(path + '/' + json) as json_file:
+            self.rarities = json.load(json_file)
+
+    def pick_attributes(self, category):
+        choices = list(self.rarities[category].keys())
+        probabilities = list(map(lambda x: x / 100.0, list(self.rarities[category].values())))
+        draw = choice(choices, 1, p = probabilities)[0]
+        return draw        
 
 class Generator:
     DNA_DELIMITER = "-"
