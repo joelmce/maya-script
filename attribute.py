@@ -7,7 +7,7 @@ class Attribute:
     # Create layer instance in Maya
     # @params
     # _name: Name for the layer
-    # int: The position the layer is in    
+    # int: The position the layer is in
     def create_layer(_name, int):
         exists = cmds.objExists(_name)
 
@@ -24,3 +24,9 @@ class Attribute:
     def randomize_attributes(list):
         layer = [..] # need category list getter here. To hardcode or to not hardcode?
         for layer_name in layer:
+
+    def get_random_attribute(layer):
+        global current_material
+
+        temp_list = layer.children[:] + layer.objects[:]
+        selected_name =

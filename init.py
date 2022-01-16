@@ -9,7 +9,7 @@ import dna
 import rarity
 import attribute
 
-filePath = "/assets" # TODO: Filing heirarchy
+# filePath = "/assets"
 fileType = "obj"
 
 class Window(object):
@@ -19,6 +19,7 @@ class Window(object):
         self.window = "Akuma Generator"
         self.title = "Generation Settings"
         self.size = (400, 400)
+
 
         # close window if window is open
         if cmds.window(self.window, exists = True):
@@ -35,6 +36,7 @@ class Window(object):
         self.collectionName = cmds.textFieldGrp(label = "Collection name:")
         self.description = cmds.textFieldGrp(label = "Description:")
         self.supply = cmds.intSlideGrp(field = True, label = "Supply:", minValue = 1, maxValue = 10000, value = 1)
+        self.filePath = cmds.textFieldGrp(label = "File Path:")
 
         self.startBtn = cmds.button(label = "Start Generation", command = self.generate)
 
@@ -46,7 +48,7 @@ class Window(object):
 class FileManager:
 
     # load files from path, then import into maya
-    def load(self):
+    def load(self, filePath):
         files = cmds.getFileList(folder = filePath, filespec = '*.%s' % fileType) # all.obj
         if len(files) == 0:
             cmds.warning("No files in the folder found.")
