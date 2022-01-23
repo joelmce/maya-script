@@ -25,8 +25,4 @@ class Attribute:
         layer = [..] # need category list getter here. To hardcode or to not hardcode?
         for layer_name in layer:
 
-    def get_random_attribute(layer):
-        global current_material
-
-        temp_list = layer.children[:] + layer.objects[:]
-        selected_name =
+   
