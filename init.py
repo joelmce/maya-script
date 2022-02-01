@@ -2,12 +2,12 @@ import maya.cmds as cmds
 import math as math
 import random as random
 import json
-import numpy.random import choice
 
 # custom library
 import dna
 import rarity
 import attribute
+import filemanager
 
 # filePath = "/assets"
 fileType = "obj"
@@ -43,18 +43,5 @@ class Window(object):
         # display
         cmds.showWindow()
 
-    def generate(self, *args):
-
-class FileManager:
-
-    # load files from path, then import into maya
-    def load(self, filePath):
-        files = cmds.getFileList(folder = filePath, filespec = '*.%s' % fileType) # all.obj
-        if len(files) == 0:
-            cmds.warning("No files in the folder found.")
-        else:
-            for i in files:
-                cmds.file(filePath + i, i = True)
 
 
-myWindow = Window()
