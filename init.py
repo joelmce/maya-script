@@ -4,9 +4,6 @@ import random as random
 import json
 
 # custom library
-import dna
-import rarity
-import attribute
 import filemanager
 
 # filePath = "/assets"
@@ -42,6 +39,3 @@ class Window(object):
 
         # display
         cmds.showWindow()
-
-
-
